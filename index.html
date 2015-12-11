@@ -7,6 +7,7 @@
 		body {
 			background-image: url(http://davidlazarphoto.com/amp/wp-content/uploads/2012/07/18-David-Lazar-Jungle-Temple.jpg);
             background-repeat: no-repeat;
+            background-size: cover;
 		}
 		#game {
 			width: 600px;
@@ -30,13 +31,12 @@
 	</style>
 </head>
 <body>
+    <h2 style="color: #FAFAD2; text-align: center; font-family: 'Optima', sans-serif; text-shadow: 2px 2px black;">Use your mouse to help save the monkey from the falling temple!</h2>
 	<div id="game"></div>
 
 	<script>
 	/*
-	 *	Welcome to the falling blocks game! It's almost done, but we need you to
-	 *	help finish the code. You'll find two tasks below, marked "TODO", with
-	 *	additional instructions and hints. Good luck!
+	 *	Welcome to the falling blocks game! This was created by the teachers at CodeCraft in Boulder, CO, and modified slightly by Kelly Holshuh(mostly in the front end and then some functions).
 	*/
 
 	// Keep track of the "game" div
@@ -143,19 +143,17 @@
         if (frame % 20 === 0){
            CreateNewBlock();
              }
-		/*
-		 * TODO: Create a new block every 100 frames
-		 * Hint: Always at the top (y = 0), but random along the x-axis
-		 * Hint: Think "modulo"
-		 * Hint: See the test block creation for how to make a block properly
-		 */
+        
+		//TODO: Create a new block every 100 frames
+
 
 		//update, draw, and check each block for collisions
 		for (var b in blocks) {
 			blocks[b].update();
 			blocks[b].draw();
 			if (blocks[b].isCollidingMouse()) {
-				alert("HAHA, YOU LOSE!");
+				alert("HAHA, YOU LOSE!")
+                document.write("Sorry, Game Over!");
 			}
           if (blocks[b].y > (600-24)){
               game.removeChild(blocks[b].element);
@@ -167,12 +165,7 @@
             
         }
           }
-			/*
-			 * TODO: Remove blocks which are off the bottom of the stage
-			 * Hint: remember to remove both the object, as well as the HTML element
-			 * Hint: Array.splice()
-			*/
-
+	
 
 	//Create a test block
 	 function CreateNewBlock(){ 
@@ -186,14 +179,7 @@
 	setInterval(tick, Math.floor(1000/20));
     
 
-	/*
-	 * OPTIONAL WORK
-	 * 1. Make the game do something more exciting when you lose
-     ***Alert
-	 * 2. As the user dodges more blocks, increase the speed of new blocks.
-	 * 3. Create a small image or shape for the user's mouse instead of the crosshair. ***pointer
-	 * 4. Write an algorithm which will spawn the blocks intelligently, instead of randomly.
-	*/
+
     
 
 	</script>
